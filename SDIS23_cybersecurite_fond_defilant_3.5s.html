@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SDIS 23 – Sensibilisation à la Cybersécurité</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
+      color: #333;
+    }
+
+    .background-slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .background-slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(10px);
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .background-slideshow img.active {
+      opacity: 1;
+    }
+
+    header {
+      background-color: #d32f2f;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: #b71c1c;
+    }
+    nav button {
+      background: none;
+      border: none;
+      padding: 1rem;
+      font-size: 1.1rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    nav button:hover {
+      transform: scale(1.1);
+      background-color: #c62828;
+    }
+    section {
+      display: none;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    section.active {
+      display: block;
+    }
+    .logo {
+      width: 80px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    .illustration {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .illustration img {
+      width: 200px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #d32f2f;
+      color: white;
+    }
+  </style>
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    window.onload = () => {
+      showSection('email');
+    };
+  </script>
+</head>
+<body>
+  <div class="background-slideshow">
+    <img src="1.jpg" class="active" />
+    <img src="2.jpeg" />
+    <img src="3.jpeg" />
+    <img src="4.jpg" />
+    <img src="5.jpg" />
+  </div>
+
+  <header>
+    <img src="23logo_23.jpg" class="logo" alt="Logo SDIS 23">
+    <h1>🔐 SDIS 23 – Sensibilisation à la Cybersécurité</h1>
+  </header>
+
+  <nav>
+    <button onclick="showSection('email')">📬 Courriels Frauduleux</button>
+    <button onclick="showSection('https')">🔗 Sites Sécurisés</button>
+    <button onclick="showSection('passwords')">🔑 Mots de Passe</button>
+    <button onclick="showSection('habits')">🧠 Réflexes Quotidiens</button>
+    <button onclick="showSection('conclusion')">🎯 À Retenir</button>
+  </nav>
+
+  <section id="email">
+    <h2>📬 Attention aux Courriels Frauduleux</h2>
+    <p>Un mail prétend venir de votre banque ou d’un service connu et vous demande de cliquer sur un lien ? 🧐</p>
+    <ul>
+      <li>Vérifiez l'adresse exacte de l'expéditeur (ex : support@banque.com vs support@bancqe.com)</li>
+      <li>Attention à l’orthographe (les arnaques en raffolent !)</li>
+      <li>Passez la souris sur les liens pour voir où ils mènent sans cliquer</li>
+    </ul>
+  </section>
+
+  <section id="https">
+    <h2>🔗 Privilégier les Sites Sécurisés</h2>
+    <p>Un site sécurisé commence par <strong>https://</strong> – le 'S' est gage de sécurité ! 🔒</p>
+    <p>Si c’est juste <strong>http://</strong>, attention : vos données peuvent être interceptées.</p>
+  </section>
+
+  <section id="passwords">
+    <h2>🔑 Des Mots de Passe Solides</h2>
+    <p>Un bon mot de passe, c’est comme une armure :</p>
+    <ul>
+      <li>Minimum 12 caractères</li>
+      <li>Des majuscules, minuscules, chiffres et caractères spéciaux</li>
+      <li>Évitez : votre date de naissance, '123456', ou 'password'</li>
+      <li><strong>Astuce :</strong> Utilisez une phrase secrète facile à retenir, comme <code>Sdis23@Feu&Sauvetage!</code></li>
+    </ul>
+  </section>
+
+  <section id="habits">
+    <h2>🧠 Les Bons Réflexes au Quotidien</h2>
+    <ul>
+      <li>Ne partagez jamais vos identifiants</li>
+      <li>Mettez à jour régulièrement vos logiciels</li>
+      <li>Activez la double authentification (2FA)</li>
+      <li>Sauvegardez vos fichiers importants dans un cloud ou sur un disque externe</li>
+    </ul>
+  </section>
+
+  <section id="conclusion">
+    <h2>🎯 À Retenir</h2>
+    <p>La cybersécurité n’est pas réservée aux experts !</p>
+    <p>Chacun peut contribuer à la sécurité numérique avec quelques gestes simples et une bonne dose de bon sens.</p>
+    <div class="illustration">
+      <img src="https://cdn-icons-png.flaticon.com/512/1995/1995621.png" alt="Pompier">
+    </div>
+  </section>
+
+  <footer>
+    © 2025 SDIS 23 – Tous droits réservés
+  </footer>
+
+  <script>
+    let index = 0;
+    const images = document.querySelectorAll('.background-slideshow img');
+    setInterval(() => {
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
+    }, 3500);
+  </script>
+</body>
+</html>
